@@ -1,9 +1,9 @@
 {
-  "name": "moz-cli",
+  "name": "jul-cli",
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "moz": "bin/moz.js"
+    "jul": "bin/moz.js"
   },
   "main": "index.js",
   "scripts": {
