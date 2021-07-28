@@ -1,11 +1,10 @@
 const inquirer = require('inquirer');
 const path = require('path');
-let download = require('download-git-repo');
+const download = require('download-git-repo');
 const { promisify } = require('util');
+const ora = require('ora');
 
-const { fnLoadingByOra } = require('./utils/common');
-
-// download = promisify(download);
+const promiseDownload = promisify(download);
 
 const choise = {
     'h5': 'direct:https://github.com/lfnb/h5-tpl.git#main',
@@ -29,9 +28,16 @@ module.exports = async (projectName) => {
     ])
 
     const gitPath = choise[repo];
+
+    const spinner = ora('下载项目中...')
+    spinner.start();
+    await promiseDownload(gitPath, targetDir, { clone: true })
+    spinner.succeed();
+    
     // console.log('targetDir', targetDir);
     // return;
-    download(gitPath, targetDir,{clone: true}, () => {
-        console.log('ss');
-    });
+    // download(gitPath, targetDir, { clone: true}, () => {
+    //     console.log('ss');
+    // })
+    
 }
