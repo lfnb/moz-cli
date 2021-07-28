@@ -7,7 +7,7 @@ const ora = require('ora');
 const promiseDownload = promisify(download);
 
 const choise = {
-    'h5': 'direct:https://github.com/lfnb/h5-tpl.git#main',
+    'h5': 'github.com:lfnb/h5-tpl#main',
     'pc': 'direct:https://github.com/lfnb/pc-tpl.git#main',
 }
 
